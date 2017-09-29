@@ -2,6 +2,7 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="valentinc.nesthermostat.HomeActivity">
@@ -22,7 +23,7 @@
 
     <include layout="@layout/content_home" />
 
-    <android.support.design.widget.FloatingActionButton
+    <!--<android.support.design.widget.FloatingActionButton
         android:id="@+id/on_off"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,5 +31,41 @@
         android:layout_margin="@dimen/fab_margin"
         app:backgroundTint="@android:color/darker_gray"
         app:srcCompat="@android:drawable/button_onoff_indicator_on" />
+-->
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/on_off"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        fab:menu_icon="@drawable/cmd"
+        fab:menu_labels_ellipsize="end"
+        fab:menu_labels_singleLine="true"
+        fab:menu_fab_label="Commandes"
+        fab:menu_backgroundColor="#ccffffff"
+        fab:menu_animationDelayPerItem="0"
+        fab:menu_colorNormal="#0064c2"
+        fab:menu_colorPressed="#0064c2"
+        fab:menu_colorRipple="#0064c2"
+        android:padding="8dp">
 
+        <!-- TODO : must remove hardcoded fab-->
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_heater"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/heater"
+            fab:fab_size="mini"
+            fab:fab_label="Chauffage"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_mosquito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mosquito"
+            fab:fab_size="mini"
+            fab:fab_label="Anti Moustique"/>
+
+
+    </com.github.clans.fab.FloatingActionMenu>
 </android.support.design.widget.CoordinatorLayout>

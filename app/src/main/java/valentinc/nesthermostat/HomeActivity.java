@@ -1,7 +1,7 @@
 package valentinc.nesthermostat;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -12,12 +12,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageButton;
+import com.github.clans.fab.FloatingActionButton;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Boolean FabOn = Boolean.FALSE;
+    private Boolean FabHeaterOn = Boolean.TRUE;
+    private Boolean FabMosquitoOn = Boolean.TRUE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,22 +27,51 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.on_off);
-        fab.setOnClickListener(new View.OnClickListener() {
+        // TODO : Create FAB because of server info
+        // TODO : remove statics
+        // TODO : save plugs.json in app
+        FloatingActionButton fab_heater = (FloatingActionButton) findViewById(R.id.fab_heater);
+        FloatingActionButton fab_mosquito = (FloatingActionButton) findViewById(R.id.fab_mosquito);
+
+        // TODO : Must Ask server
+        fab_heater.setColorNormal(Color.parseColor(getResources().getString(R.color.fab_red)));
+        fab_mosquito.setColorNormal(Color.parseColor(getResources().getString(R.color.fab_red)));
+
+        fab_heater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FloatingActionButton fab_on_off = (FloatingActionButton) findViewById(R.id.on_off);
+                FloatingActionButton fab_heater = (FloatingActionButton) findViewById(R.id.fab_heater);
 
-                if(!FabOn){
-                    FabOn = Boolean.TRUE;
-                    fab_on_off.setImageResource(android.R.drawable.button_onoff_indicator_off);
-                    Snackbar.make(view, "Turn off", Snackbar.LENGTH_LONG)
+                if(!FabHeaterOn){
+                    FabHeaterOn = Boolean.TRUE;
+                    fab_heater.setColorNormal(Color.parseColor(getResources().getString(R.color.fab_red)));
+                    Snackbar.make(view, "Chauffage éteint", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
                 else{
-                    FabOn = Boolean.FALSE;
-                    fab_on_off.setImageResource(android.R.drawable.button_onoff_indicator_on);
-                    Snackbar.make(view, "Turn on", Snackbar.LENGTH_LONG)
+                    FabHeaterOn = Boolean.FALSE;
+                    fab_heater.setColorNormal(Color.parseColor(getResources().getString(R.color.fab_green)));
+                    Snackbar.make(view, "Chauffage allumé", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            }
+        });
+
+        fab_mosquito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FloatingActionButton fab_mosquito = (FloatingActionButton) findViewById(R.id.fab_mosquito);
+
+                if(!FabMosquitoOn){
+                    FabMosquitoOn = Boolean.TRUE;
+                    fab_mosquito.setColorNormal(Color.parseColor(getResources().getString(R.color.fab_red)));
+                    Snackbar.make(view, "Anti moustique éteint", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+                else{
+                    FabMosquitoOn = Boolean.FALSE;
+                    fab_mosquito.setColorNormal(Color.parseColor(getResources().getString(R.color.fab_green)));
+                    Snackbar.make(view, "Anti moustique allumé", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
             }
