@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NesThermostat</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="dev_mail">chatelard.valentin@gmail.com</string>
+    <string name="icon_description">Logo</string>
+</resources>
