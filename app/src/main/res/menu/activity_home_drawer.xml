@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/sensors"
-            android:icon="@drawable/home_sensor"
-            android:title="@string/home_sensor" />
-        <item
-            android:id="@+id/programmation"
-            android:icon="@drawable/programmation"
-            android:title="@string/programmation" />
-        <item
-            android:id="@+id/stats"
-            android:icon="@drawable/statistics"
-            android:title="@string/statistics" />
-    </group>
-
+    <item android:title="@string/home">
+        <menu>
+            <item
+                android:id="@+id/sensors"
+                android:icon="@drawable/room"
+                android:title="@string/room" />
+            <item
+                android:id="@+id/programmation"
+                android:icon="@drawable/programmation"
+                android:title="@string/programmation" />
+            <item
+                android:id="@+id/stats"
+                android:icon="@drawable/statistics"
+                android:title="@string/statistics" />
+        </menu>
+    </item>
     <item android:title="@string/admin_drawer">
         <menu>
             <item

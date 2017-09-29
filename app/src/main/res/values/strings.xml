@@ -8,7 +8,8 @@
     <string name="dev_mail">chatelard.valentin@gmail.com</string>
     <string name="icon_description">Logo</string>
     <string name="programmation">Programmation</string>
-    <string name="home_sensor">Maison</string>
+    <string name="room">Chambre</string>
+    <string name="home">Maison</string>
     <string name="statistics">Statistiques</string>
     <string name="admin_drawer">Administration</string>
     <string name="parameters">Paramètres</string>
