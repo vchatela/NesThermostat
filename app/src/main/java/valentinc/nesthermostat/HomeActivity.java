@@ -12,9 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageButton;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Boolean FabOn = Boolean.FALSE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +26,24 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.on_off);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                FloatingActionButton fab_on_off = (FloatingActionButton) findViewById(R.id.on_off);
+
+                if(!FabOn){
+                    FabOn = Boolean.TRUE;
+                    fab_on_off.setImageResource(android.R.drawable.button_onoff_indicator_off);
+                    Snackbar.make(view, "Turn off", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+                else{
+                    FabOn = Boolean.FALSE;
+                    fab_on_off.setImageResource(android.R.drawable.button_onoff_indicator_on);
+                    Snackbar.make(view, "Turn on", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
             }
         });
 
@@ -80,17 +95,15 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.admin) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.parameters) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.programmation) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.sensors) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.stats) {
 
         }
 
